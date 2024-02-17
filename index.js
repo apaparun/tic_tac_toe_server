@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 3000;
-const hostname = process.env.HOSTNAME || "0.0.0.0";
+const hostname = "0.0.0.0" //process.env.HOSTNAME || "0.0.0.0";
 const username = process.env.username || "arunprasanth488";
 const password = process.env.password || "q45d1UwsGKlUPuGQ";
 var server = http.createServer(app);
