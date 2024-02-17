@@ -12,7 +12,7 @@ var io = require("socket.io")(server);
 // const io = new Server(server);
 //middleware conver all client data to json format
 app.use(express.json());
-
+console.log(process.env)
 const DB = `mongodb+srv://${process.env.username}:${process.env.password}@cluster0.yrjclo5.mongodb.net/?retryWrites=true&w=majority`;
 io.on("connection", socket => {
     console.log("socket connected");
