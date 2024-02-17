@@ -117,6 +117,6 @@ mongoose.connect(DB).then(() => {
 }).catch((e) => {
     console.log(`error---${e}`);
 })
-server.listen(port, "ap.tictactoe", () => {
+server.listen(port, () => {
     console.log(`server running on port ${port}`)
 });
