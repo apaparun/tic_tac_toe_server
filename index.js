@@ -6,14 +6,17 @@ const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const username = process.env.username || "arunprasanth488";
+const password = process.env.password || "q45d1UwsGKlUPuGQ"
 var server = http.createServer(app);
 const Room = require('./model/room')
 var io = require("socket.io")(server);
 // const io = new Server(server);
 //middleware conver all client data to json format
 app.use(express.json());
-console.log(process.env)
-const DB = `mongodb+srv://${process.env.username}:${process.env.password}@cluster0.yrjclo5.mongodb.net/?retryWrites=true&w=majority`;
+console.log("process.env", process.env)
+console.log(username, password)
+const DB = `mongodb+srv://${username}:${password}@cluster0.yrjclo5.mongodb.net/?retryWrites=true&w=majority`;
 io.on("connection", socket => {
     console.log("socket connected");
     socket.on("createRoom", async ({ nickname }) => {
@@ -117,6 +120,6 @@ mongoose.connect(DB).then(() => {
 }).catch((e) => {
     console.log(`error---${e}`);
 })
-server.listen(port, () => {
+server.listen(port, "0.0.0.0", () => {
     console.log(`server running on port ${port}`)
 });
