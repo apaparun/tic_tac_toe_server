@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 
 const app = express();
 const port = process.env.PORT || 3000;
+const hostname = process.env.HOSTNAME || "0.0.0.0";
 const username = process.env.username || "arunprasanth488";
-const password = process.env.password || "q45d1UwsGKlUPuGQ"
+const password = process.env.password || "q45d1UwsGKlUPuGQ";
 var server = http.createServer(app);
 const Room = require('./model/room')
 var io = require("socket.io")(server);
@@ -120,6 +121,6 @@ mongoose.connect(DB).then(() => {
 }).catch((e) => {
     console.log(`error---${e}`);
 })
-server.listen(port, "0.0.0.0", () => {
+server.listen(port, hostname, () => {
     console.log(`server running on port ${port}`)
 });
