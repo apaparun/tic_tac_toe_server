@@ -13,7 +13,7 @@ var io = require("socket.io")(server);
 //middleware conver all client data to json format
 app.use(express.json());
 
-const DB = "mongodb+srv://arunprasanth488:q45d1UwsGKlUPuGQ@cluster0.yrjclo5.mongodb.net/?retryWrites=true&w=majority";
+const DB = `mongodb+srv://${process.env.username}:${process.env.password}@cluster0.yrjclo5.mongodb.net/?retryWrites=true&w=majority`;
 io.on("connection", socket => {
     console.log("socket connected");
     socket.on("createRoom", async ({ nickname }) => {
